@@ -1,0 +1,44 @@
+.item {
+  list-style: none;
+  position: relative;
+  background-color: #ffe3ed;
+  color: black;
+  border: 3px black solid;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 4rem;
+}
+
+.button-container {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  gap: 5px;
+}
+
+.item img {
+  height: 100%;
+}
+
+.item button {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #e31b6d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #ffe3ed;
+  border: 2px black solid;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+}
+
+.item button:hover {
+  background-color: #ffe3ed;
+  color: #e31b6d;
+  border: 2px #e31b6d solid;
+}

@@ -1,0 +1,31 @@
+.header-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 3em;
+}
+.content-container {
+  width: 50vw;
+  height: 50vh;
+}
+.content-container img {
+  width: 50%;
+}
+
+.pokeball {
+  width: 4rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.pokeball:hover {
+  transform: scale(1.5);
+}
+
+.desactivate {
+  width: 4rem;
+
+  transition: all 0.2s ease-in-out;
+  filter: grayscale(1);
+}
