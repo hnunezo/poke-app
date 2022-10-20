@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { firstLetter } from "../../services/GlobalFunctions";
-import { deletePokemonTeam } from "../../states/pokemon";
+import { deletePokemonTeam, setSelectedPokemon } from "../../states/pokemon";
+import { setModal } from "../../states/page";
 import "./item.css";
 
 const Item = ({ pok }) => {
   const dispatch = useDispatch();
+
+  const openModal = () => {
+    dispatch(setModal(true));
+    dispatch(setSelectedPokemon(pok));
+  };
 
   return (
     <tr className="item">
@@ -20,7 +26,9 @@ const Item = ({ pok }) => {
       </td>
 
       <td className="button-container">
-        <button className="buttons">+</button>
+        <button className="buttons" onClick={() => openModal()}>
+          +
+        </button>
       </td>
       <td className="button-container">
         <button

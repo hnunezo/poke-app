@@ -7,14 +7,13 @@ import ButtonGeneral from "../ButtonGeneral/ButtonGeneral";
 import { firstLetter } from "../../services/GlobalFunctions";
 import "./hero.css";
 import OffCanvas from "../offcanvas/OffCanvas";
+import ModalInfo from "../Modal/ModalInfo";
 
 const Hero = () => {
   const wild = useSelector((state) => state.pokemon.wild);
   const team = useSelector((state) => state.pokemon.team);
   const pokedex = useSelector((state) => state.pokemon.pokedex);
-  const canvas = useSelector((state) => state.page.canvas);
-
-  console.log(canvas, "canvas");
+  const modal = useSelector((state) => state.page.modal);
 
   const dispatch = useDispatch();
 
@@ -109,6 +108,7 @@ const Hero = () => {
         )}
       </div>
       <OffCanvas />
+      {modal ? <ModalInfo /> : null}
     </div>
   );
 };

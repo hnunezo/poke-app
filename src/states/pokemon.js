@@ -3,6 +3,7 @@ const initialState = {
   wild: {},
   team: [],
   pokedex: [],
+  selectedModal: {},
 };
 export const pokemonSlice = createSlice({
   name: "pokemon",
@@ -21,9 +22,18 @@ export const pokemonSlice = createSlice({
     addPokedex: (state, action) => {
       state.pokedex.push(action.payload);
     },
+    setSelectedPokemon: (state, action) => {
+      state.selectedModal = action.payload;
+    },
   },
 });
 
-export const { reset, setWild, addTeam, addPokedex, deletePokemonTeam } =
-  pokemonSlice.actions;
+export const {
+  reset,
+  setWild,
+  addTeam,
+  addPokedex,
+  deletePokemonTeam,
+  setSelectedPokemon,
+} = pokemonSlice.actions;
 export default pokemonSlice.reducer;
