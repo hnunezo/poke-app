@@ -13,8 +13,10 @@ export const pokemonSlice = createSlice({
       state.wild = action.payload;
     },
     addTeam: (state, action) => {
-      console.log(action.payload);
       state.team.push(action.payload);
+    },
+    deletePokemonTeam: (state, action) => {
+      state.team = state.team.filter((el) => el.id !== action.payload);
     },
     addPokedex: (state, action) => {
       state.pokedex.push(action.payload);
@@ -22,5 +24,6 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { reset, setWild, addTeam, addPokedex } = pokemonSlice.actions;
+export const { reset, setWild, addTeam, addPokedex, deletePokemonTeam } =
+  pokemonSlice.actions;
 export default pokemonSlice.reducer;

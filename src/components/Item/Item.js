@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { firstLetter } from "../../services/GlobalFunctions";
+import { deletePokemonTeam } from "../../states/pokemon";
 import "./item.css";
 
 const Item = ({ pok }) => {
+  const dispatch = useDispatch();
+
   return (
     <tr className="item">
       <td className="image-container-blob">
@@ -19,7 +23,12 @@ const Item = ({ pok }) => {
         <button className="buttons">+</button>
       </td>
       <td className="button-container">
-        <button className="buttons">-</button>
+        <button
+          className="buttons"
+          onClick={() => dispatch(deletePokemonTeam(pok.id))}
+        >
+          -
+        </button>
       </td>
     </tr>
   );

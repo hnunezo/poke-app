@@ -31,6 +31,7 @@ td {
 
 .image-container-blob {
   background-image: url("../../assets/images/blob.svg");
+  background-size: auto;
 }
 
 .image-container-blob img {
