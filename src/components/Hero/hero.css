@@ -11,6 +11,7 @@
 }
 .content-container img {
   width: 50%;
+  filter: drop-shadow(15px 15px 0px #e31b6d);
 }
 
 .pokeball {
