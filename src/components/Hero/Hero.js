@@ -46,7 +46,7 @@ const Hero = () => {
       if (team.filter((pok) => pok.name === pokemon.name).length === 0) {
         pokemonService.getDescription(pokemon.id).then((res) => {
           const description = res.flavor_text_entries.filter(
-            (text) => text.language.name === "es"
+            (text) => text.language.name === "en"
           )[0].flavor_text;
           const copia = {
             description,
@@ -67,7 +67,7 @@ const Hero = () => {
     <div className="app">
       <div className="header-container">
         <ButtonGeneral onClick={handleWild}>
-          <span>Wild Pokemon</span>
+          <span>WILD POKEMON</span>
         </ButtonGeneral>
         <img
           src={require("../../assets/images/pokeball.png")}
@@ -79,7 +79,7 @@ const Hero = () => {
         />
 
         <ButtonGeneral onClick={handleOpen}>
-          <span>See my team</span>
+          <span>TEAM</span>
         </ButtonGeneral>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center content-container">

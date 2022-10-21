@@ -23,17 +23,29 @@ const ModalInfo = () => {
           <Modal.Title>{firstLetter(pokemon.name)}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="d-flex justify-content-center align-items-center w-100 p-4">
-            <img
-              src={pokemon.sprites.other["official-artwork"].front_default}
-              alt={pokemon.name}
-              className="w-50 h-50"
-            />
+          <div className="body-modal-container">
+            <div className="d-flex justify-content-between align-items-center">
+              <img
+                src={pokemon.sprites.other["official-artwork"].front_default}
+                alt={pokemon.name}
+                className="modal-image"
+              />
+              <div className="stats-modal-container">
+                <h2>BASE STATS</h2>
+                <div>
+                  {pokemon.stats.map((stat) => (
+                    <p>
+                      {stat.stat.name.toUpperCase()}: {stat.base_stat}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
             <div className="body-modal-pokedex">
               <div className="header-body-modal">
                 <div className="pokedex-number">
                   <p className="text-pokedex-number">POKEDEX N°</p>
-                  <h2> {pokemon.id}</h2>
+                  <h2>#{pokemon.id}</h2>
                 </div>
                 <div className="pokedex-number">
                   <p className="text-pokedex-number">TYPE</p>

@@ -6,12 +6,26 @@
   background-color: #e31b6d;
   color: #ffe3ed !important;
   border: 5px solid #e31b6d !important;
+  padding: 0.5rem !important;
 }
 .modal-body {
   border: 5px solid #e31b6d !important;
   border-radius: 15px;
   background-color: #ffe3ed;
   padding: 0;
+}
+
+.body-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+.modal-image {
+  filter: drop-shadow(15px 15px 0px #e31b6d);
+  width: 40%;
+  height: 40%;
 }
 
 .body-modal-pokedex {
@@ -28,6 +42,7 @@
 
 .modal-footer {
   border: 5px solid #e31b6d !important;
+  padding: 0.5rem !important;
 }
 
 .button-modal {
@@ -69,4 +84,18 @@
   display: flex;
   gap: 1rem;
   font-size: 0.8rem;
+}
+
+.modal-types > * {
+  background-color: #ffe3ed;
+  color: #e31b6d;
+  border-radius: 15px;
+  padding: 0.4rem;
+}
+
+.stats-modal-container {
+  color: #ffe3ed;
+  background-color: #e31b6d;
+  padding: 1rem;
+  border-radius: 15px;
 }

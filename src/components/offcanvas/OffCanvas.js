@@ -2,6 +2,7 @@ import { Offcanvas } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { closeCanvas } from "../../states/page";
 import List from "../List/List";
+import "./offcanvas.css";
 
 const OffCanvas = () => {
   const team = useSelector((state) => state.pokemon.team);
@@ -22,29 +23,26 @@ const OffCanvas = () => {
         }}
       >
         <Offcanvas.Header>
-          <button
-            style={{
-              fontSize: "2rem",
-              fontWeight: "bold",
-              position: "absolute",
-              right: "0.5rem",
-              top: "0.1rem",
-              backgroundColor: "transparent",
-              color: "white",
-              border: "none",
-            }}
-            onClick={handleClose}
-          >
+          <button className="button-close-offcanvas" onClick={handleClose}>
             X
           </button>
-          <h2>Team</h2>
+          <h2 className="pokemon-font">Team</h2>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{ width: "100%" }}>
+        <Offcanvas.Body
+          className={
+            team.length > 0
+              ? "w-100"
+              : "w-100 d-flex flex-column align-items-center justify-content-center text-center"
+          }
+        >
           <div className="d-flex flex-column">
             {team.length > 0 ? (
               <List team={team} />
             ) : (
-              <p style={{ color: "white" }}>team</p>
+              <>
+                <h2>Empty...</h2>
+                <p style={{ fontSize: "0.8rem" }}>catch some pokemon!</p>
+              </>
             )}
           </div>
         </Offcanvas.Body>

@@ -1,9 +1,9 @@
 .header-container {
   display: flex;
   justify-content: space-evenly;
-  gap: 5rem;
   align-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 5rem;
+  width: 100%;
 }
 .content-container {
   width: 50vw;
@@ -12,6 +12,7 @@
 .content-container img {
   width: 50%;
   filter: drop-shadow(15px 15px 0px #e31b6d);
+  margin-bottom: 5rem;
 }
 
 .pokeball {
