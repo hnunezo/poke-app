@@ -72,7 +72,7 @@ const Hero = () => {
         <ButtonGeneral onClick={handleWild}>
           <span>WILD POKEMON</span>
         </ButtonGeneral>
-        <div className="d-flex gap-3">
+        <div className="d-flex gap-3 text-center">
           <div className="d-flex flex-column gap-3">
             <label>Capture</label>
             <img

@@ -26,11 +26,13 @@ const Item = ({ pok }) => {
       </td>
 
       <td className="button-container">
+        <label>info</label>
         <button className="buttons" onClick={() => openModal()}>
           +
         </button>
       </td>
       <td className="button-container">
+        <label>release</label>
         <button
           className="buttons"
           onClick={() => dispatch(deletePokemonTeam(pok.id))}
