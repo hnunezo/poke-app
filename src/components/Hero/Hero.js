@@ -72,29 +72,35 @@ const Hero = () => {
         <ButtonGeneral onClick={handleWild}>
           <span>WILD POKEMON</span>
         </ButtonGeneral>
-        <div>
-          <img
-            src={require("../../assets/images/pokeball.png")}
-            className={
-              Object.keys(wild).length > 0 ? "pokeball" : "desactivate"
-            }
-            onClick={
-              Object.keys(wild).length > 0 ? () => catchPokemon(wild) : null
-            }
-            alt="pokeball.png"
-          />
-          <img
-            src={require("../../assets/images/pokedex.png")}
-            className={
-              Object.keys(wild).length > 0 ? "pokeball" : "desactivate"
-            }
-            onClick={
-              Object.keys(wild).length > 0
-                ? () => dispatch(setPokedexShow(true))
-                : null
-            }
-            alt="pokedex.png"
-          />
+        <div className="d-flex gap-3">
+          <div className="d-flex flex-column gap-3">
+            <label>Capture</label>
+            <img
+              src={require("../../assets/images/pokeball.png")}
+              className={
+                Object.keys(wild).length > 0 ? "pokeball" : "desactivate"
+              }
+              onClick={
+                Object.keys(wild).length > 0 ? () => catchPokemon(wild) : null
+              }
+              alt="pokeball.png"
+            />
+          </div>
+          <div className="d-flex flex-column gap-3">
+            <img
+              src={require("../../assets/images/pokedex.png")}
+              className={
+                Object.keys(wild).length > 0 ? "pokeball" : "desactivate"
+              }
+              onClick={
+                Object.keys(wild).length > 0
+                  ? () => dispatch(setPokedexShow(true))
+                  : null
+              }
+              alt="pokedex.png"
+            />
+            <label>Pokedex</label>
+          </div>
         </div>
         <ButtonGeneral onClick={handleOpen}>
           <span>TEAM</span>

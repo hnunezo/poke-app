@@ -1,7 +1,10 @@
 .pokemon-font {
   font-family: "Pokemon Solid", sans-serif;
   text-transform: capitalize;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
+  color: #ffca04;
+  text-shadow: 4px 0 #3a53a5, -4px 0 #3a53a5, 0 4px #3a53a5, 0 -4px #3a53a5,
+    4px 4px #3a53a5, -4px -4px #3a53a5, 4px -4px #3a53a5, -4px 4px #3a53a5;
 }
 
 .button-close-offcanvas {
