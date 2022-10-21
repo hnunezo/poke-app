@@ -37,7 +37,7 @@ const OffCanvas = () => {
         >
           <div className="d-flex flex-column">
             {team.length > 0 ? (
-              <List team={team} />
+              <List team={team} type="team" />
             ) : (
               <>
                 <h2>Empty...</h2>

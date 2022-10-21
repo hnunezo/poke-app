@@ -20,7 +20,7 @@ export const pokemonSlice = createSlice({
       state.team = state.team.filter((el) => el.id !== action.payload);
     },
     addPokedex: (state, action) => {
-      state.pokedex.push(action.payload);
+      state.pokedex = action.payload;
     },
     setSelectedPokemon: (state, action) => {
       state.selectedModal = action.payload;
