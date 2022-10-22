@@ -31,14 +31,14 @@ const Pc = () => {
           <h2 className="pokemon-font">PC</h2>
         </Offcanvas.Header>
         <Offcanvas.Body className="w-100 scrollbar">
-          <div className="d-flex ">
+          <div className="d-flex justify-content-center align-items-center">
             {pc.length > 0 ? (
               <ListPc pc={pc} />
             ) : (
-              <>
+              <div>
                 <h2>Empty...</h2>
                 <p style={{ fontSize: "0.8rem" }}>catch some pokemon!</p>
-              </>
+              </div>
             )}
           </div>
         </Offcanvas.Body>

@@ -7,7 +7,7 @@ const ListPc = ({ pc }) => {
     <div className="w-100 d-flex justify-content-center">
       <div className="d-flex gap-4 flex-wrap justify-content-center">
         {pc.map((pok) => (
-          <div className="itempc">
+          <div className="itempc" key={pok.id}>
             <p># {pok.id}</p>
             <img
               alt={pok.name}

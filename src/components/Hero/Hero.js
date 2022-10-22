@@ -29,9 +29,11 @@ const Hero = () => {
   const handleWild = () => {
     const id = Number(Math.floor(Math.random() * (905 - 1 + 1) + 1));
     pokemonService.getPokemon(id).then((res) => {
-      const copyPokedex = [...pokedex, res];
-      const orderedCopy = copyPokedex.slice().sort((a, b) => a.id - b.id);
-      dispatch(addPokedex(orderedCopy));
+      if (pokedex.filter((el) => el.id === res.id).length === 0) {
+        const copyPokedex = [...pokedex, res];
+        const orderedCopy = copyPokedex.slice().sort((a, b) => a.id - b.id);
+        dispatch(addPokedex(orderedCopy));
+      }
       dispatch(setWild(res));
     });
   };
