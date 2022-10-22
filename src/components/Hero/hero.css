@@ -17,12 +17,12 @@
 
 .pokeball {
   width: 4rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
 }
 
 .pokeball:hover {
-  transform: scale(1.5);
+  transform: scale(1.4) rotate(360deg);
 }
 
 .desactivate {
@@ -34,4 +34,26 @@
 
 .animation-container {
   transition: all 0.3s ease;
+}
+
+.swal2-timer-progress-bar2 {
+  height: 0.5rem !important;
+  border-radius: 15px !important;
+  background: rgb(2, 0, 36) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(231, 29, 213, 1) 0%,
+    rgba(175, 13, 38, 1) 100%,
+    rgba(157, 5, 177, 1) 100%,
+    rgba(209, 0, 255, 1) 100%
+  ) !important;
+}
+
+.popup {
+  background-color: #ffe3ed !important;
+}
+
+.button-swal2:focus {
+  box-shadow: none !important;
 }

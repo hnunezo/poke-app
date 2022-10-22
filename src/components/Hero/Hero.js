@@ -4,7 +4,7 @@ import pokemonService from "../../services/Pokemon";
 import { addTeam, addPokedex, setWild } from "../../states/pokemon";
 import { openCanvas, setPokedexShow, setPcShow } from "../../states/page";
 import ButtonGeneral from "../ButtonGeneral/ButtonGeneral";
-import { firstLetter } from "../../services/GlobalFunctions";
+import { firstLetter, popupSwa } from "../../services/GlobalFunctions";
 import "./hero.css";
 import OffCanvas from "../offcanvas/OffCanvas";
 import ModalInfo from "../Modal/ModalInfo";
@@ -44,6 +44,12 @@ const Hero = () => {
           ...pokemon,
         };
         dispatch(addTeam(copia));
+        popupSwa(
+          "Catched",
+          `${pokemon.name} has been captured`,
+          "success",
+          pokemon.sprites.other["official-artwork"].front_default
+        );
       });
     } else {
       if (team.filter((pok) => pok.name === pokemon.name).length === 0) {
@@ -57,12 +63,27 @@ const Hero = () => {
           };
           if (team.length < 6) {
             dispatch(addTeam(copia));
+            popupSwa(
+              "Catched",
+              `${pokemon.name} has been captured`,
+              "success",
+              pokemon.sprites.other["official-artwork"].front_default
+            );
           } else {
-            alert("team can´t have more than 6 pokemons");
+            popupSwa(
+              "Hey",
+              `You can't have more than 6 pokemons in your team`,
+              "info"
+            );
           }
         });
       } else {
-        alert("you alredy have this pokemon");
+        popupSwa(
+          "Hey",
+          `You already have ${pokemon.name} in your team`,
+          "info",
+          pokemon.sprites.other["official-artwork"].front_default
+        );
       }
     }
   };
@@ -118,7 +139,11 @@ const Hero = () => {
               className={
                 Object.keys(wild).length > 0 ? "pokeball" : "desactivate"
               }
-              onClick={() => dispatch(setPcShow(true))}
+              onClick={
+                Object.keys(wild).length > 0
+                  ? () => dispatch(setPcShow(true))
+                  : null
+              }
               alt="pokeball.png"
               name="pc-hero"
             />

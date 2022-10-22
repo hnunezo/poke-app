@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { firstLetter } from "../../services/GlobalFunctions";
+import { firstLetter, popupSwa } from "../../services/GlobalFunctions";
 import {
   deletePokemonTeam,
   setSelectedPokemon,
@@ -22,6 +22,12 @@ const Item = ({ pok }) => {
     const copy = [...pc, pok];
     dispatch(setPc(copy));
     dispatch(deletePokemonTeam(id));
+    popupSwa(
+      "Hey",
+      `${pok.name} has been sent to your pc`,
+      "success",
+      pok.sprites.other["official-artwork"].front_default
+    );
   };
   return (
     <tr className="item">
