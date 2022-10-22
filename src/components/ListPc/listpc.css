@@ -4,7 +4,7 @@
   margin-bottom: 5px;
   text-align: center;
   height: 6rem;
-  width: 100%;
+  width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,5 +18,5 @@
 
 .itempc img {
   height: 100%;
-  width: 50%;
+  width: auto;
 }
