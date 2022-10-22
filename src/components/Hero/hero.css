@@ -31,3 +31,7 @@
   transition: all 0.2s ease-in-out;
   filter: grayscale(1);
 }
+
+.animation-container {
+  transition: all 0.3s ease;
+}

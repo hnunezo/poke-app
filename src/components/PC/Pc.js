@@ -7,6 +7,7 @@ import ListPc from "../ListPc/ListPc.js";
 const Pc = () => {
   const pc = useSelector((state) => state.pokemon.pc);
   const show = useSelector((state) => state.page.pcshow);
+  const team = useSelector((state) => state.pokemon.team);
   const dispatch = useDispatch();
 
   const handleClose = () => dispatch(setPcShow(false));
@@ -24,11 +25,16 @@ const Pc = () => {
         }}
         placement="bottom"
       >
-        <Offcanvas.Header>
+        <Offcanvas.Header className="w-100 d-flex justify-content-center">
+          <p style={{ fontSize: "1rem", position: "absolute", top: "-2rem" }}>
+            {team.length < 6
+              ? "Click on the Pokémon to reintegrate it into the team!"
+              : "Team full!"}
+          </p>
+          <h2 className="pokemon-font">PC</h2>
           <button className="button-close-offcanvas" onClick={handleClose}>
             X
           </button>
-          <h2 className="pokemon-font">PC</h2>
         </Offcanvas.Header>
         <Offcanvas.Body className="w-100 scrollbar">
           <div className="d-flex justify-content-center align-items-center">

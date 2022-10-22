@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import pokemonService from "../../services/Pokemon";
 import { addTeam, addPokedex, setWild } from "../../states/pokemon";
@@ -16,15 +16,10 @@ const Hero = () => {
   const team = useSelector((state) => state.pokemon.team);
   const pokedex = useSelector((state) => state.pokemon.pokedex);
   const modal = useSelector((state) => state.page.modal);
-  const pc = useSelector((state) => state.pokemon.pc);
+  const [onHover, setOnHover] = useState("");
 
   const dispatch = useDispatch();
   const handleOpen = () => dispatch(openCanvas());
-
-  console.log(wild, "wild");
-  console.log(pc, "pc");
-  console.log(pokedex, "pokedex");
-  console.log(team, "team");
 
   const handleWild = () => {
     const id = Number(Math.floor(Math.random() * (905 - 1 + 1) + 1));
@@ -71,6 +66,7 @@ const Hero = () => {
       }
     }
   };
+
   return (
     <div className="app">
       <div className="header-container">
@@ -78,7 +74,19 @@ const Hero = () => {
           <span>WILD POKEMON</span>
         </ButtonGeneral>
         <div className="d-flex gap-3 text-center">
-          <div className="d-flex flex-column gap-3">
+          <div
+            className="d-flex flex-column gap-3 animation-container"
+            onMouseOver={(e) => setOnHover(e.target.name)}
+            onMouseLeave={() => setOnHover("")}
+            style={
+              onHover !== "capture-hero" &&
+              onHover !== "" &&
+              onHover !== undefined &&
+              Object.keys(wild).length > 0
+                ? { opacity: 0 }
+                : { opacity: 1 }
+            }
+          >
             <label>Capture</label>
             <img
               src={require("../../assets/images/pokeball.png")}
@@ -89,9 +97,22 @@ const Hero = () => {
                 Object.keys(wild).length > 0 ? () => catchPokemon(wild) : null
               }
               alt="pokeball.png"
+              name="capture-hero"
             />
           </div>
-          <div className="d-flex flex-column gap-3 text-center ">
+          <div
+            className="d-flex flex-column gap-3 animation-container"
+            onMouseOver={(e) => setOnHover(e.target.name)}
+            onMouseLeave={() => setOnHover("")}
+            style={
+              onHover !== "pc-hero" &&
+              onHover !== "" &&
+              onHover !== undefined &&
+              Object.keys(wild).length > 0
+                ? { opacity: 0 }
+                : { opacity: 1 }
+            }
+          >
             <img
               src={require("../../assets/images/pc.png")}
               className={
@@ -99,12 +120,24 @@ const Hero = () => {
               }
               onClick={() => dispatch(setPcShow(true))}
               alt="pokeball.png"
+              name="pc-hero"
             />
             <label>PC</label>
           </div>
-          <div className="d-flex flex-column gap-3">
+          <div
+            className="d-flex flex-column gap-3 animation-container"
+            onMouseOver={(e) => setOnHover(e.target.name)}
+            onMouseLeave={() => setOnHover("")}
+            style={
+              onHover !== "pokedex-hero" &&
+              onHover !== "" &&
+              onHover !== undefined &&
+              Object.keys(wild).length > 0
+                ? { opacity: 0 }
+                : { opacity: 1 }
+            }
+          >
             <label>Pokedex</label>
-
             <img
               src={require("../../assets/images/pokedex.png")}
               className={
@@ -116,6 +149,7 @@ const Hero = () => {
                   : null
               }
               alt="pokedex.png"
+              name="pokedex-hero"
             />
           </div>
         </div>

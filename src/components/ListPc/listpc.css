@@ -1,15 +1,19 @@
 .itempc {
   background-color: #ffe3ed;
   color: black;
-  margin-bottom: 5px;
   text-align: center;
-  height: 6rem;
-  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 3.5px solid black;
   border-radius: 10px;
+  width: 20vw;
+}
+
+@media (max-width: 992px) {
+  .itempc {
+    flex-direction: column;
+  }
 }
 
 .itempc > * {
@@ -17,6 +21,6 @@
 }
 
 .itempc img {
-  height: 100%;
-  width: auto;
+  height: 4rem;
+  width: 4rem;
 }
