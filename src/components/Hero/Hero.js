@@ -15,11 +15,13 @@ const Hero = () => {
   const team = useSelector((state) => state.pokemon.team);
   const pokedex = useSelector((state) => state.pokemon.pokedex);
   const modal = useSelector((state) => state.page.modal);
+  const pc = useSelector((state) => state.pokemon.pc);
 
   const dispatch = useDispatch();
-
   const handleOpen = () => dispatch(openCanvas());
+
   console.log(wild, "wild");
+  console.log(pc, "pc");
   console.log(pokedex, "pokedex");
   console.log(team, "team");
 

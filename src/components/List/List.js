@@ -8,6 +8,20 @@ const List = ({ team, type }) => {
     <div>
       <table className="table-style">
         <tbody>
+          {type === "team" ? (
+            <tr className="text-center">
+              <th>spray</th>
+              <th>Name</th>
+              <th>Info</th>
+              <th>pc</th>
+            </tr>
+          ) : (
+            <tr className="text-center">
+              <th>N°</th>
+              <th>spray</th>
+              <th>Name</th>
+            </tr>
+          )}
           {type === "team"
             ? team.map((pok) => <Item pok={pok} key={pok.id} />)
             : team.map((pok) => <ItemPokedex pok={pok} key={pok.id} />)}
