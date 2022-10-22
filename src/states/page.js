@@ -3,6 +3,7 @@ const initialState = {
   modal: false,
   canvas: false,
   pokedexshow: false,
+  pcshow: false,
 };
 export const pageSlice = createSlice({
   name: "page",
@@ -22,9 +23,18 @@ export const pageSlice = createSlice({
     setPokedexShow: (state, action) => {
       state.pokedexshow = action.payload;
     },
+    setPcShow: (state, action) => {
+      state.pcshow = action.payload;
+    },
   },
 });
 
-export const { reset, setModal, openCanvas, closeCanvas, setPokedexShow } =
-  pageSlice.actions;
+export const {
+  reset,
+  setModal,
+  openCanvas,
+  closeCanvas,
+  setPokedexShow,
+  setPcShow,
+} = pageSlice.actions;
 export default pageSlice.reducer;

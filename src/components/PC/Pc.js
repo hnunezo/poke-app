@@ -1,15 +1,15 @@
 import React from "react";
 import { Offcanvas } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { setPokedexShow } from "../../states/page";
-import List from "../List/List";
-import "./pokedex.css";
+import { setPcShow } from "../../states/page";
+import ListPc from "../ListPc/ListPc.js";
 
-const Pokedex = () => {
-  const show = useSelector((state) => state.page.pokedexshow);
-  const pokedex = useSelector((state) => state.pokemon.pokedex);
+const Pc = () => {
+  const pc = useSelector((state) => state.pokemon.pc);
+  const show = useSelector((state) => state.page.pcshow);
   const dispatch = useDispatch();
-  const handleClose = () => dispatch(setPokedexShow(false));
+
+  const handleClose = () => dispatch(setPcShow(false));
 
   return (
     <>
@@ -20,19 +20,26 @@ const Pokedex = () => {
         style={{
           background: "rgba(227,27,109,0.7)",
           color: "white",
-          borderLeft: "2px white solid",
+          borderTop: "2px white solid",
         }}
-        placement="end"
+        placement="bottom"
       >
         <Offcanvas.Header>
           <button className="button-close-offcanvas" onClick={handleClose}>
             X
           </button>
-          <h2 className="pokemon-font">Pokedex</h2>
+          <h2 className="pokemon-font">PC</h2>
         </Offcanvas.Header>
         <Offcanvas.Body className="w-100 scrollbar">
-          <div className="d-flex flex-column">
-            <List team={pokedex} type="pokedex" />
+          <div className="d-flex ">
+            {pc.length > 0 ? (
+              <ListPc pc={pc} />
+            ) : (
+              <>
+                <h2>Empty...</h2>
+                <p style={{ fontSize: "0.8rem" }}>catch some pokemon!</p>
+              </>
+            )}
           </div>
         </Offcanvas.Body>
       </Offcanvas>
@@ -40,4 +47,4 @@ const Pokedex = () => {
   );
 };
 
-export default Pokedex;
+export default Pc;

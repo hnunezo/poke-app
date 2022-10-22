@@ -2,13 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import pokemonService from "../../services/Pokemon";
 import { addTeam, addPokedex, setWild } from "../../states/pokemon";
-import { openCanvas, setPokedexShow } from "../../states/page";
+import { openCanvas, setPokedexShow, setPcShow } from "../../states/page";
 import ButtonGeneral from "../ButtonGeneral/ButtonGeneral";
 import { firstLetter } from "../../services/GlobalFunctions";
 import "./hero.css";
 import OffCanvas from "../offcanvas/OffCanvas";
 import ModalInfo from "../Modal/ModalInfo";
 import Pokedex from "../Pokedex/Pokedex";
+import Pc from "../PC/Pc";
 
 const Hero = () => {
   const wild = useSelector((state) => state.pokemon.wild);
@@ -88,7 +89,20 @@ const Hero = () => {
               alt="pokeball.png"
             />
           </div>
+          <div className="d-flex flex-column gap-3 text-center ">
+            <img
+              src={require("../../assets/images/pc.png")}
+              className={
+                Object.keys(wild).length > 0 ? "pokeball" : "desactivate"
+              }
+              onClick={() => dispatch(setPcShow(true))}
+              alt="pokeball.png"
+            />
+            <label>PC</label>
+          </div>
           <div className="d-flex flex-column gap-3">
+            <label>Pokedex</label>
+
             <img
               src={require("../../assets/images/pokedex.png")}
               className={
@@ -101,7 +115,6 @@ const Hero = () => {
               }
               alt="pokedex.png"
             />
-            <label>Pokedex</label>
           </div>
         </div>
         <ButtonGeneral onClick={handleOpen}>
@@ -133,7 +146,9 @@ const Hero = () => {
           </>
         )}
       </div>
+
       <OffCanvas />
+      <Pc />
       {pokedex ? <Pokedex /> : null}
       {modal ? <ModalInfo /> : null}
     </div>

@@ -1,0 +1,22 @@
+.itempc {
+  background-color: #ffe3ed;
+  color: black;
+  margin-bottom: 5px;
+  text-align: center;
+  height: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3.5px solid black;
+  border-radius: 10px;
+}
+
+.itempc > * {
+  margin: 0 1rem;
+}
+
+.itempc img {
+  height: 100%;
+  width: 50%;
+}
